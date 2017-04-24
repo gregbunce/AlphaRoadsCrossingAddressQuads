@@ -24,7 +24,7 @@ namespace conAlphaRoadsCrossingAddressQuads
                 string strYearMonthDayHourMin = DateTime.Now.ToString("-yyyy-MM-dd-HH-mm");
 
                 // create sql query string for recordset to loop through (remove the top(#) keyword when running outside of testing)
-                string strSqlQuery = @"select top(5) UTRANS_STREETS." + args[0] + @", UTRANS_STREETS." + args[1] + @", UTRANS_STREETS.STREETTYPE, UTRANS_STREETS.ADDR_SYS from UTRANS_STREETS
+                string strSqlQuery = @"select top(100) UTRANS_STREETS." + args[0] + @", UTRANS_STREETS." + args[1] + @", UTRANS_STREETS.ADDR_SYS from UTRANS_STREETS
                                     where CARTOCODE not in ('1','7','99')
                                     and (HWYNAME = '')
                                     and ((L_F_ADD <> 0 and L_T_ADD <> 0) OR (R_F_ADD <> 0 and R_T_ADD <> 0))
@@ -37,7 +37,7 @@ namespace conAlphaRoadsCrossingAddressQuads
                                     order by UTRANS_STREETS." + args[0] + @", UTRANS_STREETS." + args[1] + @", UTRANS_STREETS.ADDR_SYS;";
 
                 //setup a file stream and a stream writer to write out the road segments
-                string path = @"C:\temp\AlphaRoadsCrossAddrGrids" + strYearMonthDayHourMin + ".txt";
+                string path = @"C:\temp\AlphaRoadsCrossAddrGrids_" + args[0] + strYearMonthDayHourMin + ".txt";
                 fileStream = new FileStream(path, FileMode.Create);
                 streamWriter = new StreamWriter(fileStream);
                 // write the first line of the text file - this is the field headings

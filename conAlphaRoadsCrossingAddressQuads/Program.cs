@@ -15,7 +15,7 @@ namespace conAlphaRoadsCrossingAddressQuads
         static FileStream fileStream;
         static StreamWriter streamWriter;
 
-        // pass in command line args of either (STREETNAME STREETTYPE or ALIAS1 ALIAS1TYPE or ALIAS2 ALIAS2TYPE) 
+        // pass in one of the following pair of command line args: STREETNAME STREETTYPE or ALIAS1 ALIAS1TYPE or ALIAS2 ALIAS2TYPE 
         static void Main(string[] args)
         {
             try
@@ -90,7 +90,6 @@ namespace conAlphaRoadsCrossingAddressQuads
                                     else // more than 4 unique predirs were found for this road (say what?)
                                     {
                                         streamWriter.WriteLine(intIttrID + "," + strAddrSystem + "," + strStreetName + "," + strStreetType + "," + tplCrossesAxis.Item1 + "," + tplCrossesAxis.Item2 + "," + tplCrossesAxis.Item3 + "," + tplCrossesAxis.Item4 + "," + tplCrossesAxis.Item5);
-
                                     }
                                 }
                                 else // this road does not have a predirection in this address grid
@@ -111,7 +110,6 @@ namespace conAlphaRoadsCrossingAddressQuads
                 Console.ReadLine();
             }
         }
-
 
 
 
@@ -184,8 +182,6 @@ namespace conAlphaRoadsCrossingAddressQuads
                     }
                 }
 
-
-
                 return Tuple.Create(strPreDir_xN, strPreDir_xS, strPreDir_xE, strPreDir_xW, strPreDir_xOther);
             }
             catch (Exception ex)
@@ -194,12 +190,6 @@ namespace conAlphaRoadsCrossingAddressQuads
                 Console.ReadLine();
                 return Tuple.Create("-1", "-1", "-1", "-1", "-1");
             }
-        
-        
-        
         }
-
-
-
     }
 }

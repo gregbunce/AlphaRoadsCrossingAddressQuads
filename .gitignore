@@ -5,6 +5,7 @@
 *.suo
 *.user
 *.sln.docstates
+conAlphaRoadsCrossingAddressQuads\App.config
 
 # Build results
 
